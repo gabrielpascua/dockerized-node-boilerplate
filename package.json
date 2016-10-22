@@ -1,15 +1,17 @@
 {
   "name": "dockerized-node",
-  "version": "1.0.0",
-  "description": "Dockerized Node Express Application",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "''"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:gabrielpascua/dockerized-node-boilerplate.git"
-  },
-  "author": "Gabriel Pascua",
-  "license": "ISC"
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "morgan": "~1.7.0",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "~2.3.0"
+  }
 }
