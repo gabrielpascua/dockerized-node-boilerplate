@@ -1,0 +1,8 @@
+express_boilerplate:      # container name
+  build: .                # build from the current directory
+  ports:
+    - "3300:3000"         # port forward 3000 from container to 3300 on host    
+  environment: 
+    ENV: Development      # set to Development environment
+  volumes: 
+    - ./:/app             # bind mount the app folder from the host
