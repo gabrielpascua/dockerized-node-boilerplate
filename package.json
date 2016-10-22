@@ -1,0 +1,15 @@
+{
+  "name": "dockerized-node",
+  "version": "1.0.0",
+  "description": "Dockerized Node Express Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "''"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gabrielpascua/dockerized-node-boilerplate.git"
+  },
+  "author": "Gabriel Pascua",
+  "license": "ISC"
+}
