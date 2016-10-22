@@ -3,6 +3,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  req.redis.get('redis_start', function(err, reply){
+    console.log(reply);
+  });
+
   res.render('index', { title: 'Express' });
 });
 

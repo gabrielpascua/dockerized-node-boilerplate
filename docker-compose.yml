@@ -6,3 +6,8 @@ express_boilerplate:      # container name
     ENV: Development      # set to Development environment
   volumes: 
     - ./:/app             # bind mount the app folder from the host
+  links: 
+    - redis_server        # link app to redis via redis_server:6379
+
+redis_server:
+  image: redis            # redis:3.2.4 to specify a version, else :latest

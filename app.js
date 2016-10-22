@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var redis = require("redis");
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -21,6 +22,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Create the redis middleware
+app.use(function (req, res, next) {  
+  var client = redis.createClient({
+    host: 'redis_server',
+    port: 6379
+  });
+  client.set('redis_start', 'Redis client started at ' + (new Date()).toString());  
+  req.redis = client;
+  next();
+});
 
 app.use('/', routes);
 app.use('/users', users);
