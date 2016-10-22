@@ -1,5 +1,4 @@
-# dockerized-node-boilerplate
-Dockerized Node Express Application Skeleton
+# Dockerized Express Application Skeleton
 
 ### Install npm Dependencies
 ```
