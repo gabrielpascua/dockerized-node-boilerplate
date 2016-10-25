@@ -6,6 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var redis = require("redis");
 
+var client = redis.createClient({
+  host: 'redis_server',
+  port: 6379
+});
+client.set('redis_start', 'Redis client started at ' + (new Date()).toString());
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -24,12 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Create the redis middleware
-app.use(function (req, res, next) {  
-  var client = redis.createClient({
-    host: 'redis_server',
-    port: 6379
-  });
-  client.set('redis_start', 'Redis client started at ' + (new Date()).toString());  
+app.use(function (req, res, next) {
   req.redis = client;
   next();
 });
