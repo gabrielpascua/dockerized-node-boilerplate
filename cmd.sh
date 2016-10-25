@@ -11,5 +11,6 @@ fi
 
 #TODO Error Outputs
 if [ "$PASSED" = true ]; then
-    npm start
+    #npm start
+    ./node_modules/pm2/bin/pm2 start npm -- start
 fi
